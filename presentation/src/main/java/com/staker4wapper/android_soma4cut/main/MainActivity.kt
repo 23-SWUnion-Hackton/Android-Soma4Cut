@@ -1,7 +1,8 @@
-package com.staker4wapper.android_soma4cut
+package com.staker4wapper.android_soma4cut.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.staker4wapper.android_soma4cut.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

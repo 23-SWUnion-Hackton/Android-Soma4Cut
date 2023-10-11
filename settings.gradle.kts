@@ -14,5 +14,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Android-Soma4Cut"
-include(":app")
- 
+include(":presentation")
+include(":data")
