@@ -62,6 +62,13 @@
             app:exitAnim="@anim/animation_exit"
             app:popEnterAnim="@anim/animation_pop_enter"
             app:popExitAnim="@anim/animation_pop_exit"/>
+        <action
+            android:id="@+id/to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
     </fragment>
     <fragment
         android:id="@+id/codeSavedFragment"
@@ -72,4 +79,9 @@
             android:name="code"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.staker4wapper.android_soma4cut.feature.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>

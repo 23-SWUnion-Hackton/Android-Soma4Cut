@@ -32,7 +32,8 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
             Toast.makeText(context, "소마스페이스", Toast.LENGTH_SHORT).show()
         }
         binding.linearSearchBar.setOnClickListener {
-            Toast.makeText(context, "코드 등록", Toast.LENGTH_SHORT).show()
+            val action = HomeFragmentDirections.toSearchFragment()
+            findNavController().navigate(action)
         }
         binding.btnSetting.setOnClickListener {
             Toast.makeText(context, "세팅", Toast.LENGTH_SHORT).show()
