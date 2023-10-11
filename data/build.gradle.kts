@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.staker4wapper.data"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
