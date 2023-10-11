@@ -15,6 +15,15 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
         binding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
+        binding.btnLogin.setOnClickListener {
+            val etNick = binding.etLoginId.text.toString()
+            val etPwd = binding.etLoginPwd.text.toString()
+
+            if (etNick.isNotEmpty() && etPwd.isNotEmpty()) {
+                val action = LoginFragmentDirections.toHomeFragment()
+                findNavController().navigate(action)
+            }
+        }
     }
 
 }
