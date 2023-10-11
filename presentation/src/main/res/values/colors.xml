@@ -13,4 +13,6 @@
     <color name="gray_100">#FFCCCCCC</color>
     <color name="gray_50">#FFE6E6E6</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#FFF69CAE</color>
 </resources>
