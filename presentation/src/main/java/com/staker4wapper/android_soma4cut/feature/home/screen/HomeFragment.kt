@@ -17,12 +17,12 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
 
     private lateinit var context: Context
     private val frameList = mutableListOf(
-        R.drawable.img_frame1,
-        R.drawable.img_frame2,
-        R.drawable.img_frame3,
-        R.drawable.img_frame4,
-        R.drawable.img_frame5,
-        R.drawable.img_frame6,
+        R.drawable.image_frame1,
+        R.drawable.image_frame2,
+        R.drawable.image_frame1,
+        R.drawable.image_frame2,
+        R.drawable.image_frame1,
+        R.drawable.image_frame2,
     )
     override fun start() {
         context = requireContext()
