@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentSignupBinding
@@ -16,7 +17,10 @@ class SignupFragment: BaseFragment<FragmentSignupBinding, StartViewModel>(R.layo
     override val viewModel: StartViewModel by viewModels()
 
     override fun start() {
-        
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+
     }
 
 }
