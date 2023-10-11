@@ -15,4 +15,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="primary">#FFF69CAE</color>
+
+    <color name="transperent">#00ffffff</color>
 </resources>
