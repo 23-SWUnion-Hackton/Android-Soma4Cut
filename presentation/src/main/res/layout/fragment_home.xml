@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
+
         <!-- Toolbar -->
 
         <LinearLayout
@@ -42,31 +43,6 @@
 
         </LinearLayout>
 
-        <!-- Content -->
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/pretendard_semibold"
-            android:text="프레임을 선택해주세요"
-            android:textColor="@color/gray_800"
-            android:textSize="22sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:layout_marginVertical="24dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_soma_space"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
         <!-- Soma Space -->
 
@@ -75,14 +51,14 @@
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_rounded"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingHorizontal="24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -103,6 +79,68 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_arrow_mini" />
         </LinearLayout>
+
+
+        <!-- Search -->
+
+        <LinearLayout
+            android:id="@+id/linear_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_rounded"
+            android:backgroundTint="@color/gray_50"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_soma_space">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_search" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/pretendard_regular"
+                android:text="코드 등록"
+                android:textColor="@color/gray_300"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+        <!-- Content -->
+
+        <TextView
+            android:id="@+id/tv_saved_codes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="저장된 코드들"
+            android:textColor="@color/gray_800"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_search_bar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_saved_codes" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
