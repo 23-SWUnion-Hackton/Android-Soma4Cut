@@ -107,6 +107,7 @@
                         android:textSize="14sp" />
 
                     <LinearLayout
+                        android:id="@+id/btn_copy"
                         android:layout_width="53dp"
                         android:layout_height="30dp"
                         android:layout_alignParentTop="true"

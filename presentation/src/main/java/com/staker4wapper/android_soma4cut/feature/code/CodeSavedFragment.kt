@@ -1,6 +1,9 @@
 package com.staker4wapper.android_soma4cut.feature.code
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
+import android.content.Context.CLIPBOARD_SERVICE
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -9,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentCodeSavedBinding
+import com.staker4wapper.domain.model.code.Code
 
 class CodeSavedFragment: BaseFragment<FragmentCodeSavedBinding, CodeViewModel>(R.layout.fragment_code_saved) {
 
@@ -17,22 +21,22 @@ class CodeSavedFragment: BaseFragment<FragmentCodeSavedBinding, CodeViewModel>(R
     private val args: CodeSavedFragmentArgs by navArgs()
 
     private lateinit var context: Context
+    private lateinit var code: Code
 
     override fun start() {
+        code = args.code
+
         context = requireContext()
-        val code = args.code
 
         binding.btnArrowBack.setOnClickListener {
             findNavController().popBackStack()
         }
 
-        binding.tvCode.text = code.code
-        binding.tvCodeSavedDate.text = code.createdAt.slice(0..9)
+        setDatas()
 
-        val imageUrl = code.image
-        Glide.with(context).load(imageUrl).into(binding.ivImage) // todo 1. 코드 하나에 이미지 4개 보내기
-
-        // todo 2. 복사 기능 추가하기
+        binding.btnCopy.setOnClickListener {
+            copy()
+        }
 
         // todo 3. 이 코드가 소마스페이스에 올라간 상태인지 확인하기
         var isPosted = false
@@ -49,6 +53,20 @@ class CodeSavedFragment: BaseFragment<FragmentCodeSavedBinding, CodeViewModel>(R
                 isPosted = false
             }
         }
+    }
+
+    private fun setDatas() {
+        binding.tvCode.text = code.code
+        binding.tvCodeSavedDate.text = code.createdAt.slice(0..9)
+
+        val imageUrl = code.image
+        Glide.with(context).load(imageUrl).into(binding.ivImage) // todo 1. 코드 하나에 이미지 4개 보내기
+    }
+
+    private fun copy() {
+        val clipboard: ClipboardManager = requireActivity().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("label", code.code)
+        clipboard.setPrimaryClip(clip)
     }
 
 }
