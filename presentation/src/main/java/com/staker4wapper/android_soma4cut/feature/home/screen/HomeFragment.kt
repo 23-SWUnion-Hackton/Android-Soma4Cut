@@ -25,6 +25,10 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
         Code("ADED-DASE", "2023년 10월 10일"),
         Code("ADED-DASE", "2023년 10월 10일"),
         Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
     )
 
     override fun start() {
