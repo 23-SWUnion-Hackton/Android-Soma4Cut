@@ -30,25 +30,6 @@ class NetworkModule {
     fun provideDauthApi(retrofit: Retrofit): DauthApi =
         retrofit.create(DauthApi::class.java)
 
-    @Provides
-    @Singleton
-    fun provideAccountApi(retrofit: Retrofit): AccountApi =
-        retrofit.create(AccountApi::class.java)
-
-    @Provides
-    @Singleton
-    fun provideUserApi(retrofit: Retrofit): UserApi =
-        retrofit.create(UserApi::class.java)
-
-    @Provides
-    @Singleton
-    fun provideSpendListApi(retrofit: Retrofit): SpendListApi =
-        retrofit.create(SpendListApi::class.java)
-
-    @Provides
-    @Singleton
-    fun provideQRCodeApi(retrofit: Retrofit): QRCodeApi =
-        retrofit.create(QRCodeApi::class.java)
 
     /* Retrofit Object 생성 */
 
