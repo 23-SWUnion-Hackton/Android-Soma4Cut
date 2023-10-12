@@ -37,6 +37,19 @@
                 android:layout_weight="1"/>
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_medium"
+                android:textSize="16sp"
+                android:textColor="@color/gray_800"
+                android:text="검색 결과" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
                 android:id="@+id/btn_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,7 +84,7 @@
                     android:layout_marginTop="30dp">
 
                     <TextView
-                        android:id="@+id/tv_searched_code_title"
+                        android:id="@+id/tv_searched_code"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -79,20 +92,20 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="0dp"
                         android:fontFamily="@font/pretendard_semibold"
-                        android:text="검색 결과"
+                        android:text="..."
                         android:textColor="@color/gray_800"
                         android:textSize="24sp" />
 
                     <TextView
-                        android:id="@+id/tv_searched_code"
+                        android:id="@+id/tv_searched_code_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tv_searched_code_title"
+                        android:layout_below="@+id/tv_searched_code"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="6dp"
                         android:fontFamily="@font/pretendard_regular"
-                        android:text="..."
+                        android:text="...년 ...월 ...일"
                         android:textColor="@color/gray_300"
                         android:textSize="14sp" />
 

@@ -25,6 +25,10 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
         Code("ADED-DASE", "2023년 10월 10일"),
         Code("ADED-DASE", "2023년 10월 10일"),
         Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
     )
 
     override fun start() {
@@ -53,7 +57,6 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
 
     override fun onMyAccountItemClick(position: Int) {
         val codeContainer = codeList[position]
-        Toast.makeText(context, "is Clicked!", Toast.LENGTH_SHORT).show()
 
         val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer.codeString)
         findNavController().navigate(action)

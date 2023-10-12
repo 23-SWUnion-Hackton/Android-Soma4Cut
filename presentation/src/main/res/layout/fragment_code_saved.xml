@@ -14,24 +14,60 @@
 
         <!-- Toolbar -->
 
-        <androidx.appcompat.widget.Toolbar
+        <LinearLayout
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:navigationIcon="@drawable/ic_arrow_back" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btn_arrow_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_medium"
+                android:textSize="16sp"
+                android:textColor="@color/gray_800"
+                android:text="저장된 코드" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delete" />
+
+        </LinearLayout>
+
+
+        <!-- Content -->
 
         <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintBottom_toBottomOf="@id/layout_button"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,11 +77,11 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginHorizontal="24dp">
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="30dp">
 
                     <TextView
-                        android:id="@+id/tv_code_detail_title"
+                        android:id="@+id/tv_code"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -53,24 +89,22 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="0dp"
                         android:fontFamily="@font/pretendard_semibold"
-                        android:text="저장된 코드"
+                        android:text="..."
                         android:textColor="@color/gray_800"
                         android:textSize="24sp" />
 
                     <TextView
-                        android:id="@+id/tv_saved_code"
+                        android:id="@+id/tv_code_saved_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tv_code_detail_title"
+                        android:layout_below="@+id/tv_code"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="6dp"
                         android:fontFamily="@font/pretendard_regular"
-                        android:text="..."
+                        android:text="...년 ...월 ...일"
                         android:textColor="@color/gray_300"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_code_detail_title" />
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="53dp"
@@ -124,30 +158,70 @@
                     android:id="@+id/iv_image"
                     android:layout_width="match_parent"
                     android:layout_height="548dp"
+                    android:layout_marginBottom="120dp"
                     android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/button_rounded"/>
-
-                <Button
-                    android:id="@+id/btn_handle_soma_space"
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginHorizontal="24dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/pretendard_semibold"
-                    android:textSize="18sp"
-                    android:background="@drawable/button_rounded"
-                    app:backgroundTint="@color/gray_800"
-                    android:textColor="@color/white"
-                    android:text="소마스페이스에 올리기"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_image" />
+                    android:src="@drawable/button_rounded" />
 
             </LinearLayout>
 
         </ScrollView>
+
+
+        <!-- Button -->
+
+        <RelativeLayout
+            android:id="@+id/layout_button"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <View
+                android:id="@+id/container_gradient"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/container_gradient_up"
+                android:backgroundTint="@color/white" />
+
+            <View
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_below="@+id/container_gradient"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/container_angular"
+                android:backgroundTint="@color/white" />
+
+            <Button
+                android:id="@+id/btn_handle_soma_space"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_alignTop="@+id/container"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/button_rounded"
+                android:fontFamily="@font/pretendard_semibold"
+                android:text="소마스페이스에 올리기"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:backgroundTint="@color/gray_800" />
+
+        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

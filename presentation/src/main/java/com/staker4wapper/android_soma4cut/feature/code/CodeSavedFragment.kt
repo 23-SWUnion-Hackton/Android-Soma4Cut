@@ -21,26 +21,30 @@ class CodeSavedFragment: BaseFragment<FragmentCodeSavedBinding, CodeViewModel>(R
         context = requireContext()
         val code = args.code
 
-        binding.toolbar.setNavigationOnClickListener {
+        binding.btnArrowBack.setOnClickListener {
             findNavController().popBackStack()
         }
 
-        binding.tvSavedCode.text = code
+        binding.tvCode.text = code
+        // todo 0. 저장 날짜 불러오기
+
         // todo 1. 코드로 이미지 불러오기
 
         // todo 2. 복사 기능 추가하기
 
-        var isClicked = false // todo 3. viewModel의 데이터로 옮기기
+        // todo 3. 이 코드가 소마스페이스에 올라간 상태인지 확인하기
+        var isPosted = false
 
         binding.btnHandleSomaSpace.setOnClickListener {
-            // todo 4. 이 코드가 소마스페이스에 올라간 상태인지 확인하기
-            // todo 5. 그 상태에 따라 버튼 디자인 변경하기
-            if (isClicked) {
+            // todo 4. 그 상태에 따라 버튼 디자인 변경하기
+            if (!isPosted) {
                 Toast.makeText(context, "소마스페이스에 올라갔어요", Toast.LENGTH_SHORT).show()
-                isClicked = true
+                val action = CodeSavedFragmentDirections.toSomaSpaceFragment()
+                findNavController().navigate(action)
+                isPosted = true
             } else {
                 Toast.makeText(context, "소마스페이스에서 내려갔어요", Toast.LENGTH_SHORT).show()
-                isClicked = false
+                isPosted = false
             }
         }
     }

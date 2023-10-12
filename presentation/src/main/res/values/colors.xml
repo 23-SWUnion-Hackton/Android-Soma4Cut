@@ -16,7 +16,7 @@
 
     <color name="primary">#FFF69CAE</color>
 
-    <color name="transperent">#00ffffff</color>
+    <color name="transparent">#00ffffff</color>
 
     <color name="background">#FFF8F8F8</color>
 </resources>

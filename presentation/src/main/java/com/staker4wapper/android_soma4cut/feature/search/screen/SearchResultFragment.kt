@@ -26,6 +26,7 @@ class SearchResultFragment: BaseFragment<FragmentSearchResultBinding, SearchView
     override fun start() {
         context = requireContext()
         val code = args.code
+
         binding.btnArrowBack.setOnClickListener {
             findNavController().popBackStack()
         }
