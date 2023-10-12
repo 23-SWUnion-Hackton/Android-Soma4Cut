@@ -16,6 +16,10 @@ class PreferenceManager(context: Context) {
         get() = prefs.getString(ACCESS_TOKEN, "").toString()
         set(value) = prefs.edit().putString(ACCESS_TOKEN, value).apply()
 
+    var refreshToken: String
+        get() = prefs.getString(REFRESH_TOKEN, "").toString()
+        set(value) = prefs.edit().putString(REFRESH_TOKEN, value).apply()
+
     fun deleteToken() {
         prefs.edit().remove(AUTO_LOGIN_KEY).apply()
         prefs.edit().remove(ACCESS_TOKEN).apply()
@@ -25,5 +29,6 @@ class PreferenceManager(context: Context) {
         const val SOMA4CUT = "SOMA4CUT"
         const val AUTO_LOGIN_KEY = "AUTO_LOGIN_KEY"
         const val ACCESS_TOKEN = "ACCESS_TOKEN"
+        const val REFRESH_TOKEN = "REFRESH_TOKEN"
     }
 }
