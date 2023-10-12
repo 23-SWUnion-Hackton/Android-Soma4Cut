@@ -1,12 +1,5 @@
 package com.staker4wapper.android_soma4cut.di
 
-import com.sigma.data.network.api.AccountApi
-import com.sigma.data.network.api.DauthApi
-import com.sigma.data.network.api.QRCodeApi
-import com.sigma.data.network.api.SpendListApi
-import com.sigma.data.network.api.UserApi
-import com.sigma.flick.utils.BASE_URL
-import com.sigma.flick.utils.HiltApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,10 +18,10 @@ class NetworkModule {
 
     /* LoginApi Type의 객체 생성 */
 
-    @Provides
-    @Singleton
-    fun provideDauthApi(retrofit: Retrofit): DauthApi =
-        retrofit.create(DauthApi::class.java)
+//    @Provides
+//    @Singleton
+//    fun provideDauthApi(retrofit: Retrofit): DauthApi =
+//        retrofit.create(DauthApi::class.java)
 
 
     /* Retrofit Object 생성 */
@@ -37,7 +30,7 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+//            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
@@ -66,14 +59,14 @@ class NetworkModule {
     fun provideLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
 
-    @Provides
-    @Singleton
-    fun provideHeaderInterceptor() = Interceptor { chain ->
-        with(chain) {
-            val newRequest = request().newBuilder()
-                .addHeader("Authorization", "Bearer"+HiltApplication.prefs.accessToken)
-                .build()
-            proceed(newRequest)
-        }
-    }
+//    @Provides
+//    @Singleton
+//    fun provideHeaderInterceptor() = Interceptor { chain ->
+//        with(chain) {
+//            val newRequest = request().newBuilder()
+//                .addHeader("Authorization", "Bearer" + HiltApplication.prefs.accessToken)
+//                .build()
+//            proceed(newRequest)
+//        }
+//    }
 }
