@@ -1,6 +1,7 @@
 package com.staker4wapper.android_soma4cut.feature.home.screen
 
 import android.content.Context
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home), CodeListAdapter.OnClickListener {
 
-    override val viewModel: HomeViewModel by viewModels()
+    override val viewModel: HomeViewModel by activityViewModels()
 
     private lateinit var context: Context
     private val codeList: MutableList<Code> = mutableListOf()
@@ -42,7 +43,6 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
     }
 
     private fun observeCodeList() {
-
         viewModel.myCodeList.observe(viewLifecycleOwner) { myCodeList ->
             codeList.removeAll(codeList)
             myCodeList.forEach { code ->

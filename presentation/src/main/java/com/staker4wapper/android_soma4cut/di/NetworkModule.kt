@@ -71,7 +71,7 @@ class NetworkModule {
         with(chain) {
             val newRequest = request().newBuilder()
                 // todo
-                .addHeader("Authorization", "Bearer" + " eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwYTJkMDk2OS1lYzc3LTQ0ZDYtODk1MC0zOGFjZjQ3NDcxODMiLCJ0eXBlIjoiYWNjZXNzIiwiYXV0aG9yaXR5IjoiUk9MRV9VU0VSIiwiaWF0IjoxNjk3MTEwNzk4LCJleHAiOjE2OTcxMjA3OTh9.ot-vizdvIjxSwQWgjUGU9UFa66a_C-E3ElmOZ6Jj9kQ")
+                .addHeader("Authorization", "Bearer " + HiltApplication.prefs.accessToken)
                 .build()
             proceed(newRequest)
         }
