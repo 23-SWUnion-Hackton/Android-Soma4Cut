@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".feature.somaspace.screen.SomaSpaceInputCodeFragment">
+
+    <data/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_800">
+
+
+        <!-- Toolbar -->
+
+        <Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_800"
+            android:navigationIcon="@drawable/ic_back_arrow_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_soma_space_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="올릴 이미지의\n코드를 입력해주세요"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_login_id_input"
+            style="@style/Widget.Design.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="33dp"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/toolbar"
+            app:layout_constraintStart_toEndOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/tv_soma_space_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_login_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/pretendard_regular"
+                android:hint="코드 입력"
+                android:textColor="@color/white"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_code_okay"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="18sp"
+            android:textColor="@color/gray_800"
+            android:text="확인"
+            app:backgroundTint="@color/white"
+            android:background="@drawable/container_angular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

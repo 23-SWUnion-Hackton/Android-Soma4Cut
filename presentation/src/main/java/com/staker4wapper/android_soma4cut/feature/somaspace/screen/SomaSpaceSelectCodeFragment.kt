@@ -1,22 +1,22 @@
-package com.staker4wapper.android_soma4cut.feature.home.screen
+package com.staker4wapper.android_soma4cut.feature.somaspace.screen
 
-import android.content.Context
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
-import com.staker4wapper.android_soma4cut.databinding.FragmentHomeBinding
+import com.staker4wapper.android_soma4cut.databinding.FragmentSomaSpaceSelectCodeBinding
 import com.staker4wapper.android_soma4cut.feature.home.recyclerview.Code
 import com.staker4wapper.android_soma4cut.feature.home.recyclerview.CodeListAdapter
-import com.staker4wapper.android_soma4cut.feature.home.viewmodel.HomeViewModel
+import com.staker4wapper.android_soma4cut.feature.home.screen.HomeFragmentDirections
+import com.staker4wapper.android_soma4cut.feature.somaspace.recyclerview.SomaSpaceCodeListAdapter
+import com.staker4wapper.android_soma4cut.feature.somaspace.viewmodel.SomaSpaceViewModel
 
-class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home), CodeListAdapter.OnClickListener {
+class SomaSpaceSelectCodeFragment: BaseFragment<FragmentSomaSpaceSelectCodeBinding, SomaSpaceViewModel>(R.layout.fragment_soma_space_select_code), SomaSpaceCodeListAdapter.OnClickListener{
 
-    override val viewModel: HomeViewModel by viewModels()
+    override val viewModel: SomaSpaceViewModel by viewModels()
 
-    private lateinit var context: Context
     private val codeList = mutableListOf(
         Code("ADED-DASE", "2023년 10월 10일"),
         Code("ADED-DASE", "2023년 10월 10일"),
@@ -28,25 +28,20 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
     )
 
     override fun start() {
-        context = requireContext()
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+
         setCodeListAdapter()
 
-        binding.btnSomaSpace.setOnClickListener {
-            val action = HomeFragmentDirections.toSomaSpaceFragment()
-            findNavController().navigate(action)
-        }
-        binding.linearSearchBar.setOnClickListener {
-            val action = HomeFragmentDirections.toSearchFragment()
-            findNavController().navigate(action)
-        }
-        binding.btnSetting.setOnClickListener {
-            val action = HomeFragmentDirections.toSettingFragment()
+        binding.etCode.setOnClickListener {
+            val action = SomaSpaceSelectCodeFragmentDirections.toSomaSpaceInputCodeFragment()
             findNavController().navigate(action)
         }
     }
 
     private fun setCodeListAdapter() {
-        val frameListAdapter = CodeListAdapter(codeList, this)
+        val frameListAdapter = SomaSpaceCodeListAdapter(codeList, this)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = frameListAdapter
     }

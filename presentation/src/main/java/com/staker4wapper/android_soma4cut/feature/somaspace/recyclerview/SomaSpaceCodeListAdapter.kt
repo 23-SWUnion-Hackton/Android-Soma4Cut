@@ -1,4 +1,4 @@
-package com.staker4wapper.android_soma4cut.feature.home.recyclerview
+package com.staker4wapper.android_soma4cut.feature.somaspace.recyclerview
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,11 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.staker4wapper.android_soma4cut.R
+import com.staker4wapper.android_soma4cut.feature.home.recyclerview.Code
+import com.staker4wapper.android_soma4cut.feature.home.recyclerview.CodeListAdapter
 
-class CodeListAdapter(
+class SomaSpaceCodeListAdapter(
     private val itemList: List<Code>,
     private val onClickListener: OnClickListener
-) : RecyclerView.Adapter<CodeListAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<SomaSpaceCodeListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
