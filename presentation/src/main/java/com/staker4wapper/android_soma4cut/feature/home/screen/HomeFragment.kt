@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentHomeBinding
+import com.staker4wapper.android_soma4cut.feature.home.recyclerview.Code
 import com.staker4wapper.android_soma4cut.feature.home.recyclerview.CodeListAdapter
 import com.staker4wapper.android_soma4cut.feature.home.viewmodel.HomeViewModel
 
@@ -16,12 +17,14 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
     override val viewModel: HomeViewModel by viewModels()
 
     private lateinit var context: Context
-    private val frameList = mutableListOf(
-        "asdf-asdf",
-        "asdf-asdf",
-        "asdf-asdf",
-        "asdf-asdf",
-        "asdf-asdf",
+    private val codeList = mutableListOf(
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
+        Code("ADED-DASE", "2023년 10월 10일"),
     )
 
     override fun start() {
@@ -29,7 +32,8 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
         setCodeListAdapter()
 
         binding.btnSomaSpace.setOnClickListener {
-            Toast.makeText(context, "소마스페이스", Toast.LENGTH_SHORT).show()
+            val action = HomeFragmentDirections.toSomaSpaceFragment()
+            findNavController().navigate(action)
         }
         binding.linearSearchBar.setOnClickListener {
             val action = HomeFragmentDirections.toSearchFragment()
@@ -42,16 +46,16 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
     }
 
     private fun setCodeListAdapter() {
-        val frameListAdapter = CodeListAdapter(frameList, this)
+        val frameListAdapter = CodeListAdapter(codeList, this)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = frameListAdapter
     }
 
     override fun onMyAccountItemClick(position: Int) {
-        val codeContainer = frameList[position]
+        val codeContainer = codeList[position]
         Toast.makeText(context, "is Clicked!", Toast.LENGTH_SHORT).show()
 
-        val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer)
+        val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer.codeString)
         findNavController().navigate(action)
     }
 

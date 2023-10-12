@@ -76,6 +76,13 @@
             app:exitAnim="@anim/animation_exit"
             app:popEnterAnim="@anim/animation_pop_enter"
             app:popExitAnim="@anim/animation_pop_exit"/>
+        <action
+            android:id="@+id/to_somaSpaceFragment"
+            app:destination="@id/somaSpaceFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
     </fragment>
     <fragment
         android:id="@+id/codeSavedFragment"
@@ -85,6 +92,13 @@
         <argument
             android:name="code"
             app:argType="string" />
+        <action
+            android:id="@+id/to_somaSpaceFragment"
+            app:destination="@id/somaSpaceFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -113,4 +127,50 @@
         android:name="com.staker4wapper.android_soma4cut.feature.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/somaSpaceFragment"
+        android:name="com.staker4wapper.android_soma4cut.feature.somaspace.screen.SomaSpaceFragment"
+        android:label="fragment_soma_space"
+        tools:layout="@layout/fragment_soma_space" >
+        <action
+            android:id="@+id/to_somaSpaceSelectCodeFragment"
+            app:destination="@id/somaSpaceSelectCodeFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+    </fragment>
+    <fragment
+        android:id="@+id/somaSpaceSelectCodeFragment"
+        android:name="com.staker4wapper.android_soma4cut.feature.somaspace.screen.SomaSpaceSelectCodeFragment"
+        android:label="fragment_soma_space_select_code"
+        tools:layout="@layout/fragment_soma_space_select_code" >
+        <action
+            android:id="@+id/to_somaSpaceInputCodeFragment"
+            app:destination="@id/somaSpaceInputCodeFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+        <action
+            android:id="@+id/to_codeSavedFragment"
+            app:destination="@id/codeSavedFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+    </fragment>
+    <fragment
+        android:id="@+id/somaSpaceInputCodeFragment"
+        android:name="com.staker4wapper.android_soma4cut.feature.somaspace.screen.SomaSpaceInputCodeFragment"
+        android:label="fragment_soma_space_input_code"
+        tools:layout="@layout/fragment_soma_space_input_code" >
+        <action
+            android:id="@+id/to_somaSpaceFragment"
+            app:destination="@id/somaSpaceFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+    </fragment>
 </navigation>
