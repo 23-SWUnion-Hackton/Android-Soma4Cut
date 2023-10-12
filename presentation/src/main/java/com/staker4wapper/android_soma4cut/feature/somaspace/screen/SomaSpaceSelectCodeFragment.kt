@@ -7,11 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentSomaSpaceSelectCodeBinding
-import com.staker4wapper.android_soma4cut.feature.home.recyclerview.Code
-import com.staker4wapper.android_soma4cut.feature.home.recyclerview.CodeListAdapter
 import com.staker4wapper.android_soma4cut.feature.home.screen.HomeFragmentDirections
 import com.staker4wapper.android_soma4cut.feature.somaspace.recyclerview.SomaSpaceCodeListAdapter
 import com.staker4wapper.android_soma4cut.feature.somaspace.viewmodel.SomaSpaceViewModel
+import com.staker4wapper.domain.model.code.Code
 
 class SomaSpaceSelectCodeFragment: BaseFragment<FragmentSomaSpaceSelectCodeBinding, SomaSpaceViewModel>(R.layout.fragment_soma_space_select_code), SomaSpaceCodeListAdapter.OnClickListener{
 
@@ -50,7 +49,7 @@ class SomaSpaceSelectCodeFragment: BaseFragment<FragmentSomaSpaceSelectCodeBindi
         val codeContainer = codeList[position]
         Toast.makeText(context, "is Clicked!", Toast.LENGTH_SHORT).show()
 
-        val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer.codeString)
+        val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer.code)
         findNavController().navigate(action)
     }
 

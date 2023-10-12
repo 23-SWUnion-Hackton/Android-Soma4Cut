@@ -1,17 +1,18 @@
 package com.staker4wapper.android_soma4cut.feature.home.screen
 
 import android.content.Context
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentHomeBinding
-import com.staker4wapper.android_soma4cut.feature.home.recyclerview.Code
 import com.staker4wapper.android_soma4cut.feature.home.recyclerview.CodeListAdapter
 import com.staker4wapper.android_soma4cut.feature.home.viewmodel.HomeViewModel
+import com.staker4wapper.domain.model.code.Code
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home), CodeListAdapter.OnClickListener {
 
     override val viewModel: HomeViewModel by viewModels()
@@ -32,8 +33,11 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
     )
 
     override fun start() {
+        viewModel.getCodes()
+
         context = requireContext()
-        setCodeListAdapter()
+
+        observeCodeList()
 
         binding.btnSomaSpace.setOnClickListener {
             val action = HomeFragmentDirections.toSomaSpaceFragment()
@@ -49,6 +53,17 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
         }
     }
 
+    private fun observeCodeList() {
+
+        viewModel.myCodeList.observe(viewLifecycleOwner) { myCodeList ->
+            codeList.removeAll(codeList)
+            myCodeList.forEach { code ->
+                codeList.add(code)
+            }
+            setCodeListAdapter()
+        }
+    }
+
     private fun setCodeListAdapter() {
         val frameListAdapter = CodeListAdapter(codeList, this)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
@@ -58,7 +73,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
     override fun onMyAccountItemClick(position: Int) {
         val codeContainer = codeList[position]
 
-        val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer.codeString)
+        val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer.code)
         findNavController().navigate(action)
     }
 

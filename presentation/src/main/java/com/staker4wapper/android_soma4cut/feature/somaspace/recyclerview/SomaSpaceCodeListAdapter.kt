@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.staker4wapper.android_soma4cut.R
-import com.staker4wapper.android_soma4cut.feature.home.recyclerview.Code
-import com.staker4wapper.android_soma4cut.feature.home.recyclerview.CodeListAdapter
+import com.staker4wapper.domain.model.code.Code
 
 class SomaSpaceCodeListAdapter(
     private val itemList: List<Code>,
@@ -24,8 +23,8 @@ class SomaSpaceCodeListAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[position]
 
-        holder.codeText.text = item.codeString
-        holder.codeDate.text = item.codeDate
+        holder.codeText.text = item.code
+        holder.codeDate.text = item.createdAt
     }
 
     override fun getItemCount(): Int = itemList.size

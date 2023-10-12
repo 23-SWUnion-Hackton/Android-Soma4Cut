@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentSomaSpaceBinding
-import com.staker4wapper.android_soma4cut.feature.home.recyclerview.Code
-import com.staker4wapper.android_soma4cut.feature.somaspace.recyclerview.SomaSpaceCodeListAdapter
 import com.staker4wapper.android_soma4cut.feature.somaspace.recyclerview.SomaSpaceImageListAdapter
 import com.staker4wapper.android_soma4cut.feature.somaspace.viewmodel.SomaSpaceViewModel
 

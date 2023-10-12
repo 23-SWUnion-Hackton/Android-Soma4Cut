@@ -2,6 +2,7 @@ package com.staker4wapper.android_soma4cut.di
 
 import com.staker4wapper.android_soma4cut.utils.HiltApplication
 import com.staker4wapper.data.remote.api.AuthApi
+import com.staker4wapper.data.remote.api.CodeApi
 import com.staker4wapper.data.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -24,6 +25,10 @@ class NetworkModule {
     fun provideAuthApi(retrofit: Retrofit): AuthApi =
         retrofit.create(AuthApi::class.java)
 
+    @Provides
+    @Singleton
+    fun provideCodeApi(retrofit: Retrofit): CodeApi =
+        retrofit.create(CodeApi::class.java)
 
     /* Retrofit Object 생성 */
 
