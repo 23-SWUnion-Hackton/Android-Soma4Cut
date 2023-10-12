@@ -69,6 +69,13 @@
             app:exitAnim="@anim/animation_exit"
             app:popEnterAnim="@anim/animation_pop_enter"
             app:popExitAnim="@anim/animation_pop_exit"/>
+        <action
+            android:id="@+id/to_settingFragment"
+            app:destination="@id/settingFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
     </fragment>
     <fragment
         android:id="@+id/codeSavedFragment"
@@ -101,4 +108,9 @@
             android:name="code"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.staker4wapper.android_soma4cut.feature.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
 </navigation>

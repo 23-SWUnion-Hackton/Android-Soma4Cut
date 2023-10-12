@@ -36,7 +36,8 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
             findNavController().navigate(action)
         }
         binding.btnSetting.setOnClickListener {
-            Toast.makeText(context, "세팅", Toast.LENGTH_SHORT).show()
+            val action = HomeFragmentDirections.toSettingFragment()
+            findNavController().navigate(action)
         }
     }
 
