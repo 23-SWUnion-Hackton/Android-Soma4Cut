@@ -44,7 +44,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
                     findNavController().navigate(action)
                 }
                 if (loginState.error.isNotEmpty()) {
-                    makeToast(context, "로그인에 문제가 생겼어요")
+                    makeToast(context, "아이디나 비밀번호를 다시 확인해주세요")
                 }
             }
         }
@@ -53,6 +53,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
     private fun checkUser(etName: String, etPwd: String) {
         if (etName.isNotEmpty() && etPwd.isNotEmpty()) {
             viewModel.login(LoginRequestModel(etName, etPwd))
+            makeToast(context, "잠시만 기다려주세요")
         } else {
             makeToast(context, "입력을 다시 확인해주세요")
         }

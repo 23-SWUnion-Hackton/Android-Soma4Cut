@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentSettingBinding
+import com.staker4wapper.android_soma4cut.utils.HiltApplication
 import com.staker4wapper.android_soma4cut.utils.makeToast
 
 class SettingFragment: BaseFragment<FragmentSettingBinding, SettingViewModel>(R.layout.fragment_setting) {
@@ -38,7 +39,10 @@ class SettingFragment: BaseFragment<FragmentSettingBinding, SettingViewModel>(R.
                 toast("앱 버전")
             }
             linearLogout.setOnClickListener {
-                toast("로그아웃")
+                toast("로그아웃 되었어요")
+                HiltApplication.prefs.deleteToken()
+                val action = SettingFragmentDirections.toStartFragment()
+                findNavController().navigate(action)
             }
         }
     }
