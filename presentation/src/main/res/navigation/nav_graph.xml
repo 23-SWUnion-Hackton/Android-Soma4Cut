@@ -45,7 +45,15 @@
         android:id="@+id/signupFragment"
         android:name="com.staker4wapper.android_soma4cut.feature.start.screen.SignupFragment"
         android:label="fragment_signup"
-        tools:layout="@layout/fragment_signup"/>
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+    </fragment>
 
 
     <!-- Home Screen -->

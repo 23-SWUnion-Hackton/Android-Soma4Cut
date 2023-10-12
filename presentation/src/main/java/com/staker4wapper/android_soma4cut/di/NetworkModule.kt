@@ -1,5 +1,8 @@
 package com.staker4wapper.android_soma4cut.di
 
+import com.staker4wapper.android_soma4cut.utils.HiltApplication
+import com.staker4wapper.data.remote.api.AuthApi
+import com.staker4wapper.data.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,12 +19,10 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
 
-    /* LoginApi Type의 객체 생성 */
-
-//    @Provides
-//    @Singleton
-//    fun provideDauthApi(retrofit: Retrofit): DauthApi =
-//        retrofit.create(DauthApi::class.java)
+    @Provides
+    @Singleton
+    fun provideAuthApi(retrofit: Retrofit): AuthApi =
+        retrofit.create(AuthApi::class.java)
 
 
     /* Retrofit Object 생성 */
@@ -30,7 +31,7 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-//            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
@@ -59,14 +60,15 @@ class NetworkModule {
     fun provideLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
 
-//    @Provides
-//    @Singleton
-//    fun provideHeaderInterceptor() = Interceptor { chain ->
-//        with(chain) {
-//            val newRequest = request().newBuilder()
-//                .addHeader("Authorization", "Bearer" + HiltApplication.prefs.accessToken)
-//                .build()
-//            proceed(newRequest)
-//        }
-//    }
+    @Provides
+    @Singleton
+    fun provideHeaderInterceptor() = Interceptor { chain ->
+        with(chain) {
+            val newRequest = request().newBuilder()
+                // todo
+                .addHeader("Authorization", "Bearer" + HiltApplication.prefs.accessToken)
+                .build()
+            proceed(newRequest)
+        }
+    }
 }

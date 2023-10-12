@@ -6,7 +6,9 @@ import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentLoginBinding
 import com.staker4wapper.android_soma4cut.feature.start.viewmodel.StartViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout.fragment_login) {
 
     override val viewModel: StartViewModel by viewModels()
