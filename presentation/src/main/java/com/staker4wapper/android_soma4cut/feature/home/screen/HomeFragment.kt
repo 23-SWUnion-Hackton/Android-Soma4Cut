@@ -57,7 +57,6 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
 
     override fun onMyAccountItemClick(position: Int) {
         val codeContainer = codeList[position]
-        Toast.makeText(context, "is Clicked!", Toast.LENGTH_SHORT).show()
 
         val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer.codeString)
         findNavController().navigate(action)
