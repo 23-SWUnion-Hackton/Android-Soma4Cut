@@ -25,7 +25,7 @@ class SomaSpaceFragment: BaseFragment<FragmentSomaSpaceBinding, SomaSpaceViewMod
 
     override fun start() {
         binding.btnArrowBack.setOnClickListener {
-            findNavController().popBackStack() 
+            findNavController().popBackStack()
         }
 
         setCodeListAdapter()
