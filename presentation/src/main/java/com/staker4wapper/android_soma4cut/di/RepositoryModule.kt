@@ -2,8 +2,10 @@ package com.staker4wapper.android_soma4cut.di
 
 import com.staker4wapper.data.repository.AuthRepositoryImpl
 import com.staker4wapper.data.repository.CodeRepositoryImpl
+import com.staker4wapper.data.repository.SpaceRepositoryImpl
 import com.staker4wapper.domain.repository.AuthRepository
 import com.staker4wapper.domain.repository.CodeRepository
+import com.staker4wapper.domain.repository.SpaceRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,5 +28,10 @@ class RepositoryModule {
         impl: CodeRepositoryImpl
     ): CodeRepository = impl
 
+    @Provides
+    @Singleton
+    fun provideSpaceRepository(
+        impl: SpaceRepositoryImpl
+    ): SpaceRepository = impl
 
 }

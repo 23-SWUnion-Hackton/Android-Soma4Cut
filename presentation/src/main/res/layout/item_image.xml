@@ -5,14 +5,36 @@
     android:layout_height="500dp"
     android:background="@drawable/button_rounded_stroked"
     android:backgroundTint="@color/white"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_marginBottom="20dp">
 
     <ImageView
-        android:id="@+id/iv_soma_space_image"
+        android:id="@+id/iv_soma_image1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         app:srcCompat="@drawable/button_rounded" />
 
+
+    <ImageView
+        android:id="@+id/iv_soma_image2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/button_rounded" />
+
+    <ImageView
+        android:id="@+id/iv_soma_image3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/button_rounded" />
+
+    <ImageView
+        android:id="@+id/iv_soma_image4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/button_rounded" />
 
 </LinearLayout>

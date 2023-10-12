@@ -1,6 +1,7 @@
 package com.staker4wapper.android_soma4cut.feature.home.screen
 
 import android.content.Context
+import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -47,6 +48,11 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
             codeList.removeAll(codeList)
             myCodeList.forEach { code ->
                 codeList.add(code)
+            }
+            if (codeList.isNotEmpty()) {
+                binding.tvNothingCode.visibility = View.INVISIBLE
+            } else {
+                binding.tvNothingCode.visibility = View.VISIBLE
             }
             setCodeListAdapter()
         }

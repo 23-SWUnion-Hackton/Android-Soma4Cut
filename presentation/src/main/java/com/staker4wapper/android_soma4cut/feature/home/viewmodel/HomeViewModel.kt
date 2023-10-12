@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.staker4wapper.android_soma4cut.base.BaseViewModel
 import com.staker4wapper.domain.model.code.Code
+import com.staker4wapper.domain.model.code.Codes
 import com.staker4wapper.domain.repository.CodeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

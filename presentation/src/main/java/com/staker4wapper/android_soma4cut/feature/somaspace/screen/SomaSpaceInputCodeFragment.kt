@@ -11,7 +11,9 @@ import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentSomaSpaceInputCodeBinding
 import com.staker4wapper.android_soma4cut.feature.somaspace.viewmodel.SomaSpaceViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SomaSpaceInputCodeFragment: BaseFragment<FragmentSomaSpaceInputCodeBinding, SomaSpaceViewModel>(R.layout.fragment_soma_space_input_code) {
 
     override val viewModel: SomaSpaceViewModel by viewModels()

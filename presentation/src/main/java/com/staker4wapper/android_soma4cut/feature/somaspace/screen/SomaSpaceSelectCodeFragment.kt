@@ -14,7 +14,9 @@ import com.staker4wapper.android_soma4cut.feature.home.screen.HomeFragmentDirect
 import com.staker4wapper.android_soma4cut.feature.home.viewmodel.HomeViewModel
 import com.staker4wapper.android_soma4cut.feature.somaspace.viewmodel.SomaSpaceViewModel
 import com.staker4wapper.domain.model.code.Code
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SomaSpaceSelectCodeFragment: BaseFragment<FragmentSomaSpaceSelectCodeBinding, SomaSpaceViewModel>(R.layout.fragment_soma_space_select_code), CodeListAdapter.OnClickListener{
 
     override val viewModel: SomaSpaceViewModel by viewModels()

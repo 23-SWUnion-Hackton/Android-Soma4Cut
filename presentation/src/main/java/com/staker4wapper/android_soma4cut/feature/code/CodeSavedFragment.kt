@@ -59,8 +59,14 @@ class CodeSavedFragment: BaseFragment<FragmentCodeSavedBinding, CodeViewModel>(R
         binding.tvCode.text = code.code
         binding.tvCodeSavedDate.text = code.createdAt.slice(0..9)
 
-        val imageUrl = code.image
-        Glide.with(context).load(imageUrl).into(binding.ivImage) // todo 1. 코드 하나에 이미지 4개 보내기
+        val imageUrl1 = code.image[0]
+        val imageUrl2 = code.image[1]
+        val imageUrl3 = code.image[2]
+        val imageUrl4 = code.image[3]
+        Glide.with(context).load(imageUrl1).into(binding.ivImage1)
+        Glide.with(context).load(imageUrl2).into(binding.ivImage2)
+        Glide.with(context).load(imageUrl3).into(binding.ivImage3)
+        Glide.with(context).load(imageUrl4).into(binding.ivImage4)
     }
 
     private fun copy() {

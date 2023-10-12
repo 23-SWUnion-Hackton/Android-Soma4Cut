@@ -1,8 +1,12 @@
 package com.staker4wapper.android_soma4cut.di
 
+import android.widget.Space
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.staker4wapper.android_soma4cut.utils.HiltApplication
 import com.staker4wapper.data.remote.api.AuthApi
 import com.staker4wapper.data.remote.api.CodeApi
+import com.staker4wapper.data.remote.api.SpaceApi
 import com.staker4wapper.data.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -30,14 +34,20 @@ class NetworkModule {
     fun provideCodeApi(retrofit: Retrofit): CodeApi =
         retrofit.create(CodeApi::class.java)
 
-    /* Retrofit Object 생성 */
+    @Provides
+    @Singleton
+    fun provideSpaceApi(retrofit: Retrofit): SpaceApi =
+        retrofit.create(SpaceApi::class.java)
+
+
+    /* --------------------------------- */
 
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .client(okHttpClient)
             .build()
     }
