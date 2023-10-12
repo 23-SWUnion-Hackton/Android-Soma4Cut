@@ -7,7 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentSearchBinding
-import com.staker4wapper.android_soma4cut.feature.search.SearchViewModel
+import com.staker4wapper.android_soma4cut.feature.search.viewmodel.SearchViewModel
 
 
 class SearchFragment: BaseFragment<FragmentSearchBinding, SearchViewModel>(R.layout.fragment_search) {

@@ -18,19 +18,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
     override val viewModel: HomeViewModel by viewModels()
 
     private lateinit var context: Context
-    private val codeList = mutableListOf(
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-    )
+    private val codeList: MutableList<Code> = mutableListOf()
 
     override fun start() {
         viewModel.getCodes()
@@ -73,7 +61,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
     override fun onMyAccountItemClick(position: Int) {
         val codeContainer = codeList[position]
 
-        val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer.code)
+        val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer)
         findNavController().navigate(action)
     }
 

@@ -100,9 +100,6 @@
         android:name="com.staker4wapper.android_soma4cut.feature.code.CodeSavedFragment"
         android:label="fragment_code_saved"
         tools:layout="@layout/fragment_code_saved" >
-        <argument
-            android:name="code"
-            app:argType="string" />
         <action
             android:id="@+id/to_somaSpaceFragment"
             app:destination="@id/somaSpaceFragment"
@@ -112,6 +109,9 @@
             app:exitAnim="@anim/animation_exit"
             app:popEnterAnim="@anim/animation_pop_enter"
             app:popExitAnim="@anim/animation_pop_exit"/>
+        <argument
+            android:name="code"
+            app:argType="com.staker4wapper.domain.model.code.Code" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"

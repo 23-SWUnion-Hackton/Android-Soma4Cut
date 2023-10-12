@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentCodeSavedBinding
@@ -25,10 +26,11 @@ class CodeSavedFragment: BaseFragment<FragmentCodeSavedBinding, CodeViewModel>(R
             findNavController().popBackStack()
         }
 
-        binding.tvCode.text = code
-        // todo 0. 저장 날짜 불러오기
+        binding.tvCode.text = code.code
+        binding.tvCodeSavedDate.text = code.createdAt.slice(0..9)
 
-        // todo 1. 코드로 이미지 불러오기
+        val imageUrl = code.image
+        Glide.with(context).load(imageUrl).into(binding.ivImage) // todo 1. 코드 하나에 이미지 4개 보내기
 
         // todo 2. 복사 기능 추가하기
 

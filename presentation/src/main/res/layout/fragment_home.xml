@@ -157,8 +157,6 @@
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
-        <!-- Soma Space -->
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

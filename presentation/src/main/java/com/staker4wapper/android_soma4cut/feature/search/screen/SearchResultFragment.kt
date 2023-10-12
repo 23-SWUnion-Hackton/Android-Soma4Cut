@@ -1,11 +1,6 @@
 package com.staker4wapper.android_soma4cut.feature.search.screen
 
 import android.content.Context
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -13,7 +8,7 @@ import androidx.navigation.fragment.navArgs
 import com.sigma.flick.base.BaseFragment
 import com.staker4wapper.android_soma4cut.R
 import com.staker4wapper.android_soma4cut.databinding.FragmentSearchResultBinding
-import com.staker4wapper.android_soma4cut.feature.search.SearchViewModel
+import com.staker4wapper.android_soma4cut.feature.search.viewmodel.SearchViewModel
 
 class SearchResultFragment: BaseFragment<FragmentSearchResultBinding, SearchViewModel>(R.layout.fragment_search_result) {
 

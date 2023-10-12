@@ -16,15 +16,7 @@ class SomaSpaceSelectCodeFragment: BaseFragment<FragmentSomaSpaceSelectCodeBindi
 
     override val viewModel: SomaSpaceViewModel by viewModels()
 
-    private val codeList = mutableListOf(
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-        Code("ADED-DASE", "2023년 10월 10일"),
-    )
+    private val codeList: MutableList<Code> = mutableListOf()
 
     override fun start() {
         binding.toolbar.setNavigationOnClickListener {
@@ -49,7 +41,7 @@ class SomaSpaceSelectCodeFragment: BaseFragment<FragmentSomaSpaceSelectCodeBindi
         val codeContainer = codeList[position]
         Toast.makeText(context, "is Clicked!", Toast.LENGTH_SHORT).show()
 
-        val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer.code)
+        val action = HomeFragmentDirections.toCodeSavedFragment(codeContainer)
         findNavController().navigate(action)
     }
 
