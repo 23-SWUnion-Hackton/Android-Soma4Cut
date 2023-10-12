@@ -37,8 +37,10 @@ class CodeSavedFragment: BaseFragment<FragmentCodeSavedBinding, CodeViewModel>(R
 
         binding.btnHandleSomaSpace.setOnClickListener {
             // todo 4. 그 상태에 따라 버튼 디자인 변경하기
-            if (isPosted) {
+            if (!isPosted) {
                 Toast.makeText(context, "소마스페이스에 올라갔어요", Toast.LENGTH_SHORT).show()
+                val action = CodeSavedFragmentDirections.toSomaSpaceFragment()
+                findNavController().navigate(action)
                 isPosted = true
             } else {
                 Toast.makeText(context, "소마스페이스에서 내려갔어요", Toast.LENGTH_SHORT).show()

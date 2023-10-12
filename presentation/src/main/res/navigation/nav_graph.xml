@@ -106,6 +106,8 @@
         <action
             android:id="@+id/to_somaSpaceFragment"
             app:destination="@id/somaSpaceFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false"
             app:enterAnim="@anim/animation_enter"
             app:exitAnim="@anim/animation_exit"
             app:popEnterAnim="@anim/animation_pop_enter"
@@ -187,6 +189,8 @@
         <action
             android:id="@+id/to_somaSpaceFragment"
             app:destination="@id/somaSpaceFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false"
             app:enterAnim="@anim/animation_enter"
             app:exitAnim="@anim/animation_exit"
             app:popEnterAnim="@anim/animation_pop_enter"
