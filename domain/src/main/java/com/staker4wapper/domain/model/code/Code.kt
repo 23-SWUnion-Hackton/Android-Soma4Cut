@@ -6,10 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Code(
-    @SerializedName("code")
     val code: String,
-    @SerializedName("createdAt")
     val createdAt: String,
-    @SerializedName("image")
     val image: List<String>
 ): Parcelable

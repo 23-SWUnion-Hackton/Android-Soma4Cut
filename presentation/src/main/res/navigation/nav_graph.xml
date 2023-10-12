@@ -133,7 +133,7 @@
         tools:layout="@layout/fragment_search_result">
         <argument
             android:name="code"
-            app:argType="string" />
+            app:argType="com.staker4wapper.domain.model.code.Code" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"

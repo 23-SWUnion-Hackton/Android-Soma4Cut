@@ -159,13 +159,40 @@
                     app:layout_constraintTop_toBottomOf="@+id/iv_line_container" />
 
                 <ImageView
-                    android:id="@+id/iv_image"
+                    android:id="@+id/iv_image1"
                     android:layout_width="match_parent"
-                    android:layout_height="548dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_height="137dp"
                     android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/button_rounded" />
+
+                <ImageView
+                    android:id="@+id/iv_image2"
+                    android:layout_width="match_parent"
+                    android:layout_height="137dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/button_rounded" />
+
+                <ImageView
+                    android:id="@+id/iv_image3"
+                    android:layout_width="match_parent"
+                    android:layout_height="137dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/button_rounded" />
+
+                <ImageView
+                    android:id="@+id/iv_image4"
+                    android:layout_width="match_parent"
+                    android:layout_height="137dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/button_rounded" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"/>
 
             </LinearLayout>
 
