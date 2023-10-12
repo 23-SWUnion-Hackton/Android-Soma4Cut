@@ -25,10 +25,25 @@ class SomaSpaceImageListAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[position]
 
-        Glide.with(context).load(item.images[0]).into(holder.somaSpaceImage1)
-        Glide.with(context).load(item.images[1]).into(holder.somaSpaceImage2)
-        Glide.with(context).load(item.images[2]).into(holder.somaSpaceImage3)
-        Glide.with(context).load(item.images[3]).into(holder.somaSpaceImage4)
+        val imageCount = item.images.lastIndex + 1
+
+        if (imageCount == 1) {
+            Glide.with(context).load(item.images[0]).into(holder.somaSpaceImage1)
+            holder.somaSpaceImage1.layoutParams.height = 2000
+            holder.somaSpaceImage2.visibility = View.GONE
+            holder.somaSpaceImage3.visibility = View.GONE
+            holder.somaSpaceImage4.visibility = View.GONE
+        } else if (imageCount == 2) {
+            Glide.with(context).load(item.images[0]).into(holder.somaSpaceImage1)
+            Glide.with(context).load(item.images[1]).into(holder.somaSpaceImage2)
+            holder.somaSpaceImage3.visibility = View.GONE
+            holder.somaSpaceImage4.visibility = View.GONE
+        } else if (imageCount == 4) {
+            Glide.with(context).load(item.images[0]).into(holder.somaSpaceImage1)
+            Glide.with(context).load(item.images[1]).into(holder.somaSpaceImage2)
+            Glide.with(context).load(item.images[2]).into(holder.somaSpaceImage3)
+            Glide.with(context).load(item.images[3]).into(holder.somaSpaceImage4)
+        }
     }
 
     override fun getItemCount(): Int = itemList.size

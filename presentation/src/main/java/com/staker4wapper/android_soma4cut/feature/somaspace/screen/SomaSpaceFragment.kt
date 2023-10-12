@@ -24,9 +24,7 @@ class SomaSpaceFragment: BaseFragment<FragmentSomaSpaceBinding, SomaSpaceViewMod
 
     override fun start() {
         viewModel.getSomaSpaceImages()
-
         context = requireContext()
-
         binding.btnArrowBack.setOnClickListener {
             findNavController().popBackStack()
         }
