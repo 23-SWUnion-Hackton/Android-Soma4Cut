@@ -1,7 +1,12 @@
 package com.staker4wapper.android_soma4cut.di
 
+import android.widget.Space
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.staker4wapper.android_soma4cut.utils.HiltApplication
 import com.staker4wapper.data.remote.api.AuthApi
+import com.staker4wapper.data.remote.api.CodeApi
+import com.staker4wapper.data.remote.api.SpaceApi
 import com.staker4wapper.data.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -9,9 +14,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.reflect.Type
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -24,15 +32,25 @@ class NetworkModule {
     fun provideAuthApi(retrofit: Retrofit): AuthApi =
         retrofit.create(AuthApi::class.java)
 
+    @Provides
+    @Singleton
+    fun provideCodeApi(retrofit: Retrofit): CodeApi =
+        retrofit.create(CodeApi::class.java)
 
-    /* Retrofit Object 생성 */
+    @Provides
+    @Singleton
+    fun provideSpaceApi(retrofit: Retrofit): SpaceApi =
+        retrofit.create(SpaceApi::class.java)
+
+
+    /* --------------------------------- */
 
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .client(okHttpClient)
             .build()
     }
@@ -55,6 +73,9 @@ class NetworkModule {
         return okHttpClientBuilder.build()
     }
 
+
+
+
     @Provides
     @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor =
@@ -66,7 +87,7 @@ class NetworkModule {
         with(chain) {
             val newRequest = request().newBuilder()
                 // todo
-                .addHeader("Authorization", "Bearer" + HiltApplication.prefs.accessToken)
+                .addHeader("Authorization", "Bearer " + HiltApplication.prefs.accessToken)
                 .build()
             proceed(newRequest)
         }

@@ -58,5 +58,4 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
             makeToast(context, "입력을 다시 확인해주세요")
         }
     }
-
 }
