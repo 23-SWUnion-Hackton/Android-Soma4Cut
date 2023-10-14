@@ -13,7 +13,7 @@ class SpaceRepositoryImpl @Inject constructor(
     override suspend fun getSomaSpaceImages(): List<Image> =
         spaceApi.getSomaSpaceImages()
 
-    override suspend fun postSomaSpaceImage(code: String): PostImageResponseModel =
-        spaceApi.postSomaSpaceImage(code).toModel()
+    override suspend fun postSomaSpaceImage(code: String): List<PostImageResponseModel> =
+        spaceApi.postSomaSpaceImage(code)
 
 }
