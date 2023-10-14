@@ -50,7 +50,7 @@ class SignupFragment: BaseFragment<FragmentSignupBinding, StartViewModel>(R.layo
                     findNavController().navigate(action)
                 }
                 if (signupState.error.isNotEmpty()) {
-                    toast(signupState.error)
+//                    toast(signupState.error)
                 }
             }
         }
